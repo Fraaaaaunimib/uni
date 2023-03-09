@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "Test",
+            "projectName": "uni_dc44c0a7"
+        },
+        {
+            "type": "java",
+            "name": "ProvaCerchio",
+            "request": "launch",
+            "mainClass": "ProvaCerchio",
+            "projectName": "uni_dc44c0a7"
+        },
+        {
+            "type": "java",
+            "name": "ProvaPunto",
+            "request": "launch",
+            "mainClass": "ProvaPunto",
+            "projectName": "uni_dc44c0a7"
+        }
+    ]
+}
