@@ -98,5 +98,6 @@ class Test{
         //mostra :3
         System.out.println("Il primo studente si chiama " + studente1.nome + " " + studente1.cognome + ", con matricola " + studente1.matricola);
         System.out.println("L'esame che è stato conseguito è stato " + libretto1.esame1.insegnamento.denominazione + ", con " + libretto1.esame1.insegnamento.cfu + " CFU e ID " + libretto1.esame1.insegnamento.id + ", conseguito in data " + libretto1.esame1.data + " con voto " + libretto1.esame1.voto + ". ");
+        
     }
 }

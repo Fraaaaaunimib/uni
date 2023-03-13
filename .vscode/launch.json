@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ProvaMetodi",
+            "request": "launch",
+            "mainClass": "ProvaMetodi",
+            "projectName": "uni_dc44c0a7"
+        },
+        {
+            "type": "java",
+            "name": "testVagone",
+            "request": "launch",
+            "mainClass": "testVagone",
+            "projectName": "uni_dc44c0a7"
+        },
+        {
+            "type": "java",
             "name": "Test",
             "request": "launch",
             "mainClass": "Test",
