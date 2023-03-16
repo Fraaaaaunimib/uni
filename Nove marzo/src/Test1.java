@@ -13,20 +13,21 @@ public class Test1{
             studente.libretto.esami[i] = new Esame();
             studente.libretto.esami[i].insegnamento = new Insegnamento();
         }
-
+        boolean whileChoiceControl = true;
+        boolean menu = true;
         Scanner sc = new Scanner(System.in);
-
+        while (menu == true){
         //metodo per farti inserire tutti i dati
-        System.out.print("Vuoi aggiungere un esame al tuo libretto? ");
+        System.out.print("Vuoi aggiungere un esame al tuo libretto? [si per aggiungerli, \"vedi\" per vederli ]");
             String librettoChoice = sc.next();
             librettoChoice = librettoChoice.toLowerCase();
 boolean continue1 = true;
             switch (librettoChoice) {
-                case "yes":
-
+                case "si":
+                whileChoiceControl = true;
                 while (continue1 == true){
                     for (int i = 0; i < studente.libretto.esami.length;i++){
-                        if (studente.libretto.esami[i].insegnamento.cfu == 0){
+                        if (studente.libretto.esami[i].insegnamento.cfu == 0 && whileChoiceControl == true){
                 System.out.print("Quanti CFU ha l'insegnamento del tuo esame? ");
                 studente.libretto.esami[i].insegnamento.cfu = sc.nextInt();
 
@@ -48,13 +49,17 @@ boolean continue1 = true;
                 String whileChoice = sc.next();
                 whileChoice = whileChoice.toLowerCase();
                 switch (whileChoice){
-                    case "yes":
+                    case "si":
                     continue1 = true;
                     break;
 
                     case "no":
                     continue1 = false;
+                    whileChoiceControl = false;
+                    i = studente.libretto.esami.length + 1;
                     break;
+                    
+                    
 
                     default:
                     break;
@@ -65,16 +70,24 @@ boolean continue1 = true;
                 break;
 
                 case "vedi":
-            for (int i = 0; i < studente.libretto.esami.length; i++){
-                if (studente.libretto.esami[i].insegnamento.cfu != 0){
-                    System.out.println("Insegnamento " + studente.libretto.esami[i].insegnamento.denominazione + " con CFU " + studente.libretto.esami[i].insegnamento.cfu + " relativo all'esame che hai fatto il " + studente.libretto.esami[i].data + " con un voto di " + studente.libretto.esami[i].voto);
+                System.out.println(" ╔════════╦═════════════════════╦═══════╦══════════════╦════════════╗");
+                System.out.println(" ║   ID   ║    Denominazione    ║  CFU  ║  Voto esame  ║ Data esame ║");
+                    
+                for (int i = 0; i < studente.libretto.esami.length; i++){
+                    if (studente.libretto.esami[i].insegnamento.cfu != 0){
+                    //System.out.println("Insegnamento " + studente.libretto.esami[i].insegnamento.denominazione + " con CFU " + studente.libretto.esami[i].insegnamento.cfu + " relativo all'esame che hai fatto il " + studente.libretto.esami[i].data + " con un voto di " + studente.libretto.esami[i].voto);
+
+                    System.out.println(" ║  " + studente.libretto.esami[i].insegnamento.id + " ║    " + studente.libretto.esami[i].insegnamento.denominazione + "   ║  " + studente.libretto.esami[i].insegnamento.cfu + "    ║       " + studente.libretto.esami[i].voto + "     ║     " + studente.libretto.esami[i].data + "   ║");
 
                 }
             }
+                System.out.println(" ╚════════╩═════════════════════╩═══════╩══════════════╩════════════╝");
                 break;
-                sc.close();
+                
                 
         }
+    }
+        sc.close();
                     }
                 }
                 
