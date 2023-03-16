@@ -2,37 +2,9 @@
     "configurations": [
         {
             "type": "java",
-            "name": "ProvaMetodi",
+            "name": "Test1",
             "request": "launch",
-            "mainClass": "ProvaMetodi",
-            "projectName": "uni_dc44c0a7"
-        },
-        {
-            "type": "java",
-            "name": "testVagone",
-            "request": "launch",
-            "mainClass": "testVagone",
-            "projectName": "uni_dc44c0a7"
-        },
-        {
-            "type": "java",
-            "name": "Test",
-            "request": "launch",
-            "mainClass": "Test",
-            "projectName": "uni_dc44c0a7"
-        },
-        {
-            "type": "java",
-            "name": "ProvaCerchio",
-            "request": "launch",
-            "mainClass": "ProvaCerchio",
-            "projectName": "uni_dc44c0a7"
-        },
-        {
-            "type": "java",
-            "name": "ProvaPunto",
-            "request": "launch",
-            "mainClass": "ProvaPunto",
+            "mainClass": "Test1",
             "projectName": "uni_dc44c0a7"
         }
     ]
