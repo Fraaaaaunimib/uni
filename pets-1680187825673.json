@@ -1,0 +1,50 @@
+[
+  {
+    "color": "black",
+    "type": "dog",
+    "size": "nano",
+    "name": "Huesos"
+  },
+  {
+    "color": "purple",
+    "type": "mod",
+    "size": "nano",
+    "name": "Moddy"
+  },
+  {
+    "color": "red",
+    "type": "fox",
+    "size": "nano",
+    "name": "Rose"
+  },
+  {
+    "color": "yellow",
+    "type": "clippy",
+    "size": "nano",
+    "name": "Ruby"
+  },
+  {
+    "color": "gray",
+    "type": "totoro",
+    "size": "nano",
+    "name": "Buddy"
+  },
+  {
+    "color": "yellow",
+    "type": "zappy",
+    "size": "nano",
+    "name": "Sonic"
+  },
+  {
+    "color": "yellow",
+    "type": "rubber-duck",
+    "size": "nano",
+    "name": "Peanut"
+  },
+  {
+    "color": "gray",
+    "type": "rocky",
+    "size": "nano",
+    "name": "Dolomite"
+  }
+]

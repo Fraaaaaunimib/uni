@@ -19,7 +19,7 @@ public class Rettangolo{
     public String toString(){
         String stato;
         int area = this.calcolaArea();
-        stato = "Rettangolo di base " +
+        stato = "Rettangolo di i'm base " +
                 base + ", altezza " +
                 altezza + " e area " +
                 area;
