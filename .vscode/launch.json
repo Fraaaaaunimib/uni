@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Compitino",
+            "request": "launch",
+            "mainClass": "Compitino",
+            "projectName": "uni_aff1dbce"
+        }
+    ]
+}

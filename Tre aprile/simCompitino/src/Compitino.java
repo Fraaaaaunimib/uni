@@ -1,6 +1,20 @@
+
 public class Compitino {
 
+    public static void main(String[] args) {
     
+        Playlist playlist1 = new Playlist("Dua Lipa");
+        Brano loveAgain = new Brano("Love Again", 2450);
+        Brano breakHeart = new Brano("Break My Heart", 3000);
+        playlist1.aggiungiBrano(loveAgain);
+        playlist1.aggiungiBrano(breakHeart);
+
+        playlist1.play();
+    }
+    
+
+
+
 }
 
 class Playlist{
@@ -8,7 +22,7 @@ class Playlist{
     private String titolo;
     private Brano[] brani;
 
-    private Playlist(String titolo, int numeroBrani){
+    public Playlist(String titolo, int numeroBrani){
         this.titolo = titolo;
         if (numeroBrani < 1){
             numeroBrani = 20; //capienza massima
@@ -27,7 +41,7 @@ class Playlist{
 
 
 
-    private Playlist(String titolo){
+    public Playlist(String titolo){
         this(titolo, 20); //richiamo il primo costruttore
     }
 
@@ -77,12 +91,17 @@ class Playlist{
     }
 
     public int posizioneBrano(Brano brano){
+        try {
         if (brano == null) return -1;
         for (int i = 0; i < brani.length; i++){
         if (brani[i].equals(brano)){
             return i;
         }
     }
+    } catch (NullPointerException e) {
+
+    }
+    
 
         return -1;
     }
@@ -100,8 +119,25 @@ class Playlist{
             }
             return null;
         }
-    }
 
+        public int play(){
+            int totale = 0;
+            try{
+            
+            for(int i = 0; i < brani.length; i++){
+            System.out.println("Titolo brano no. " + i+1 + " : " + brani[i].getTitolo() + ", durata del brano: " + brani[i].getDurataInSecondi());
+                totale += brani[i].getDurataInSecondi();
+        
+        }
+    } catch (NullPointerException e){
+
+    
+        
+    }
+    return totale;
+        }
+    
+    }
 
 
 class Brano{
