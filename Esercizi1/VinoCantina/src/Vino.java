@@ -67,7 +67,9 @@ class Cantina{
 
     public Vino[] preleva(Vino vinoi, int numeroBottiglie){
         for (int i = 0; i < this.vino.length; i++){
-            if (vino[i].getPrezzo() )
+            if (vino[i].getPrezzo() > 0)
+                vino[i] = null;
         }
+        return vino;
     }
 }
