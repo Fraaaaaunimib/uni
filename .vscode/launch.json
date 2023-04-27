@@ -2,6 +2,62 @@
     "configurations": [
         {
             "type": "java",
+            "name": "RobotRock",
+            "request": "launch",
+            "mainClass": "RobotRock",
+            "projectName": "uni_aff1dbce"
+        },
+        {
+            "type": "java",
+            "name": "Occupazione",
+            "request": "launch",
+            "mainClass": "Occupazione",
+            "projectName": "uni_aff1dbce"
+        },
+        {
+            "type": "java",
+            "name": "Daft",
+            "request": "launch",
+            "mainClass": "Daft",
+            "projectName": "uni_aff1dbce"
+        },
+        {
+            "type": "java",
+            "name": "Giorno",
+            "request": "launch",
+            "mainClass": "Giorno",
+            "projectName": "uni_aff1dbce"
+        },
+        {
+            "type": "java",
+            "name": "App2",
+            "request": "launch",
+            "mainClass": "App2",
+            "projectName": "uni_aff1dbce"
+        },
+        {
+            "type": "java",
+            "name": "App1",
+            "request": "launch",
+            "mainClass": "App1",
+            "projectName": "uni_aff1dbce"
+        },
+        {
+            "type": "java",
+            "name": "Appa",
+            "request": "launch",
+            "mainClass": "Appa",
+            "projectName": "uni_aff1dbce"
+        },
+        {
+            "type": "java",
+            "name": "Appo",
+            "request": "launch",
+            "mainClass": "Appo",
+            "projectName": "uni_aff1dbce"
+        },
+        {
+            "type": "java",
             "name": "App",
             "request": "launch",
             "mainClass": "App",
