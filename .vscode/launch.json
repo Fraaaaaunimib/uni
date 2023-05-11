@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "Test",
+            "projectName": "uni_aff1dbce"
+        },
+        {
+            "type": "java",
             "name": "RobotRock",
             "request": "launch",
             "mainClass": "RobotRock",
