@@ -1,6 +1,6 @@
 package esercizio1;
 
-public abstract class Dipendente{
+abstract class Dipendente{
     private String nome;
     private int matricola;
     private double salarioMensile;

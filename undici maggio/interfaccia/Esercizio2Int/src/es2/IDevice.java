@@ -127,8 +127,8 @@ class LunghezzaPassword extends Regola{
 
     @Override
     protected boolean applica(Account a){
-    return (a.getPassword().length() >= lunghezzaMinima)
-    return false;
+    return (a.getPassword().length() >= lunghezzaMinima);
+    
 }
 
 }
