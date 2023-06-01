@@ -7,11 +7,11 @@ public class Audit {
         Dirigente e1 = (Dirigente)e;
         if (e1.getBenefit() > 10000) return true;
         } catch (NullPointerException eN){
-            System.out.println("null");;
+            System.out.println("null");
         } catch (ClassCastException eC){
-            System.out.println("Class cast");;
+            System.out.println("Class cast");
         } catch (Exception ea){
-            System.out.println("Exception");;
+            System.out.println("Exception");
         } finally {
         System.out.println("Message");
         }

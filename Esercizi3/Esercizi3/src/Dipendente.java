@@ -6,12 +6,16 @@ public abstract class Dipendente {
 	private double salarioMensile;
 	
 	public Dipendente(String nome, int matricola, double salario) throws DipendenteException{
-		if (nome == null || nome == "" || matricola < 0 || salario < 1000) throw new DipendenteException();
-		this.nome = nome;
-		this.matricola = matricola;
-		this.salarioMensile = salario;
-	
-}
+		if (nome == null || nome.isBlank()) throw new DipendenteException("Nome errato");
+		else this.nome = nome;
+
+		if (matricola <= 0) throw new DipendenteException("matricola errata");
+		else this.matricola = matricola;
+
+		if (salario <= 0) throw new DipendenteException("Salario troppo basso");
+		else this.salarioMensile = salario;
+		}
+
 	
 	public abstract double calcolaRal();
 	

@@ -4,7 +4,7 @@ public class Azienda {
 	
 	private Dipendente[] dipendenti;
 	
-	public Azienda(int maxDipendenti) {
+	public Azienda(int maxDipendenti) throws AziendaException{
 		if (maxDipendenti > 0) {
 			dipendenti = new Dipendente[maxDipendenti];
 		} else {

@@ -2,7 +2,7 @@ package Esercizi3;
 
 public class Impiegato extends Dipendente {
 	
-	public Impiegato(String nome, int matricola, double salario) {
+	public Impiegato(String nome, int matricola, double salario) throws DipendenteException {
 		super(nome, matricola, salario);
 	}
 	
