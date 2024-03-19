@@ -4,6 +4,20 @@
             "type": "java",
             "name": "Client",
             "request": "launch",
+            "mainClass": "Esercizio3.Client",
+            "projectName": "uni_aff1dbce"
+        },
+        {
+            "type": "java",
+            "name": "Server",
+            "request": "launch",
+            "mainClass": "Esercizio3.Server",
+            "projectName": "uni_aff1dbce"
+        },
+        {
+            "type": "java",
+            "name": "Client",
+            "request": "launch",
             "mainClass": "Client",
             "projectName": "uni_aff1dbce"
         },

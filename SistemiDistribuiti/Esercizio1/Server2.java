@@ -42,7 +42,7 @@ class Posto {
     }
 }
 
-public class Server {
+public class Server2 {
     public static final int port = 8080;
     
     public static void main(String args[]) {
