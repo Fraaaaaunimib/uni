@@ -1,5 +1,6 @@
 {
     "editor.fontSize": 10,
     "java.debug.settings.onBuildFailureProceed": true,
-    "workbench.editor.tabCloseButton": "left"
+    "workbench.editor.tabCloseButton": "left",
+    "workbench.editor.tabActionLocation": "left"
 }
