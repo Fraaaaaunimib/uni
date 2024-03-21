@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Server2",
+            "request": "launch",
+            "mainClass": "Server2",
+            "projectName": "uni_aff1dbce"
+        },
+        {
+            "type": "java",
             "name": "TestThread",
             "request": "launch",
             "mainClass": "TestThread",

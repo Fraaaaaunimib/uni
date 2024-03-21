@@ -19,12 +19,9 @@
 
 package Esercizio3;
 import java.io.BufferedReader;
-import java.io.DataInputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
-import java.net.Socket;
 import java.util.List;
 
 class Autore {
@@ -38,7 +35,6 @@ class Libro {
     String titolo;
 
     public String toString() { return titolo; }
-
     public Libro getLibro() { return this; }
 }
 
@@ -48,18 +44,13 @@ public class Server {
         String result = "";
         for (int i = 0; i < autore.length; i++) {
             result += autore[i].toString() + "\n";
-        }
-        return result;
-    }
+        } return result; }
 
     public static String getAuthorId(Autore[] autore, String nome){
         for(int i = 0; i < autore.length; i++){
             if(autore[i].nome.equals(nome) && autore[i] != null){
-                return autore[i].nome;
-            }
-        }
-        return "-1";
-    }
+                return autore[i].nome; } }
+        return "-1"; }
 
     public static String addAuthor(Autore[] autore, String nome){
         for(int i = 0; i < autore.length; i++){
@@ -69,12 +60,7 @@ public class Server {
                 }
                 if(autore[i].nome.isBlank() || autore[i].nome.isEmpty()){
                     autore[i].nome = nome;
-                    return autore[i].nome;
-                }
-            }
-        }
-        return "-1";
-    }
+                    return autore[i].nome; } } } return "-1"; }
 
     public static boolean addBook(Autore[] autore, String nome, String titolo){
         for(int i = 0; i < autore.length; i++){

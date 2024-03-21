@@ -12,65 +12,42 @@ import java.util.List;
  */
 
 class Sala {
-    List<Posto> posti;
-    String film;
+    List<Posto> posti; String film;
 
-    public String toString() {
-        return film;
-    }
+    public String toString() { return film; }
 
-    public Sala getSala() {
-        return this;
-    }
+    public Sala getSala() { return this; }
 
-    public List<Posto> getPosti() {
-        return posti;
-    }
-}
+    public List<Posto> getPosti() { return posti; } }
 
 class Posto {
-    boolean occupato;
-    int fila;
-    int numero;
+    boolean occupato; int fila; int numero;
 
-    public String toString() {
-        return "Fila: " + fila + " Numero: " + numero + " Occupato: " + occupato;
-    }
+    public String toString() { return "Fila: " + fila + " Numero: " + numero + " Occupato: " + occupato; }
 
-    public Posto getPosto(){
-        return this;    
-    }
-}
+    public Posto getPosto(){ return this; } }
 
 public class Server2 {
     public static final int port = 8080;
-    
+
     public static void main(String args[]) {
         try (var socket = new ServerSocket(port)) {
             while (true) {
                 System.out.println("Waiting a new client connection...");
-                var client = socket.accept();
-                var out = new PrintWriter(client.getOutputStream(), true);
+                var client = socket.accept(); var out = new PrintWriter(client.getOutputStream(), true);
                 System.out.printf("Client connected, serving on %d port\n", client.getPort());
 
-                InputStream in = client.getInputStream();
-                byte date = (byte)in.read();
+                InputStream in = client.getInputStream(); byte date = (byte)in.read();
                 System.out.println("Message received by the client: " + date);
-                out_manager(date ,out);
-                out.close();
-                client.close();
+                out_manager(date, out); out.close(); client.close();
 
             }
         } catch (Exception e) {
-            e.printStackTrace();
-            System.exit(1);
-        }
-    }
+            e.printStackTrace(); System.exit(1); } }
 
     @SuppressWarnings("rawtypes")
     public static HashMap cinema_manager(){
         HashMap<Integer, ArrayList<Sala>> cinema = new HashMap<>();
-
 
         //lunedì
         for (int i = 0; i < 8; i++){
@@ -79,29 +56,21 @@ public class Server2 {
 
         switch (i){
             case 0:
-                sala.get(0).film = "Star Wars - The Force Awakens";
-                break;
+                sala.get(0).film = "Star Wars - The Force Awakens"; break;
             case 1:
-                sala.get(0).film = "Top Gun";
-                break;
+                sala.get(0).film = "Top Gun"; break;
             case 2:
-                sala.get(0).film = "La La Land";
-                break;
+                sala.get(0).film = "La La Land"; break;
             case 3:
-                sala.get(0).film = "The Godfather";
-                break;
+                sala.get(0).film = "The Godfather"; break;
             case 4:
-                sala.get(0).film = "The Shawshank Redemption";
-                break;
+                sala.get(0).film = "The Shawshank Redemption"; break;
             case 5:
-                sala.get(0).film = "The Dark Knight";
-                break;
+                sala.get(0).film = "The Dark Knight"; break;
             case 6:
-                sala.get(0).film = "The Matrix";
-                break;
+                sala.get(0).film = "The Matrix"; break;
             case 7:
-                sala.get(0).film = "The Matrix Reloaded";
-                break;
+                sala.get(0).film = "The Matrix Reloaded"; break;
         }
         sala.get(0).posti = new ArrayList<>();
         for (int x = 0; x < 10; x++){
@@ -123,14 +92,16 @@ public class Server2 {
         }
         System.out.println("Date received by the client: " + date2);
         ArrayList<Sala> sala = (ArrayList<Sala>) cinema.get(date2 - 1);
-        for (int i = 0; i < sala.get(date2).posti.size(); i++){
-            if (sala.get(date2).posti.get(i).occupato == false){
-                sala.get(date2).posti.get(i).occupato = true;
-                return true;
+        if(sala != null && !sala.isEmpty()){
+            Sala salaDaPrenotare = sala.get(0);
+            for (int i = 0; i < salaDaPrenotare.posti.size(); i++){
+                if (!salaDaPrenotare.posti.get(i).occupato){
+                    salaDaPrenotare.posti.get(i).occupato = true;
+                    return true;
+                }
             }
         }
         return false;
-
     }
 
     public static void out_manager(byte date, PrintWriter out){

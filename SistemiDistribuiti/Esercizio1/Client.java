@@ -37,9 +37,7 @@ public class Client {
                     if (bytesRead == -1) break;
                     messageString += new String(byteReceived, 0, bytesRead);
                 }
-                System.out.printf("Elenco dei film del giorno\n \"%s\"\n", messageString);
-
-                System.out.println("Cerco di prenotare il film del giorno...");
+                System.out.printf("\n \"%s\"\n", messageString);
                 
                     
             in.close();
