@@ -28,15 +28,13 @@ class Autore {
     String nome;
     List<Libro> libri;
 
-    public String toString() { return nome; }
-}
+    public String toString() { return nome; } }
 
 class Libro {
     String titolo;
 
     public String toString() { return titolo; }
-    public Libro getLibro() { return this; }
-}
+    public Libro getLibro() { return this; } }
 
 public class Server {
 
@@ -73,13 +71,7 @@ public class Server {
                         } else if (libro.titolo.isBlank() || libro.titolo.isEmpty()){
                             libro.titolo = titolo;
                             return true;
-                        }
-                    }  
-                }
-            }
-        }
-        return false;
-    }
+                        } } } } } return false; }
 
     public static String getAllBooks(Autore[] autore){
         String result = "";
@@ -89,21 +81,12 @@ public class Server {
                     Libro libro = autore[i].libri.get(j);
                     if(libro != null){
                         result += autore[i].toString() + ": " + libro.toString() + "\n";
-                    }
-                }
-            }
-        }
-        return result;
-    }
+                    } } } } return result; }
 
     public static String getBooksOf(Autore[] autore, String nome){
         for(int i = 0; i < autore.length; i++){
             if(autore[i] != null && autore[i].nome.equals(nome)){
-                return autore[i].libri.toString();
-            }
-        }
-        return "-1";
-    }
+                return autore[i].libri.toString(); } } return "-1"; }
 
     public static Autore[] initialiseCatalogue(){
         Autore[] autore = new Autore[10];
@@ -112,10 +95,7 @@ public class Server {
             addAuthor(autore, "test");
             addBook(autore, "test", "test1");
             addBook(autore, "test", "test2");
-        }
-        return autore;
-
-    }
+        } return autore; }
 
     public static final int port = 8080;
     public static void main(String args[]){
@@ -130,12 +110,9 @@ public class Server {
 
                 Autore[] autore = initialiseCatalogue();
                 toString(autore);
-            }
-        } catch (Exception e) {
+            } } catch (Exception e) {
             e.printStackTrace();
-            System.exit(1);
-        }
-    }
+            System.exit(1); } }
 
   public static void toString(Autore[] autore) {
     for (int i = 0; i < autore.length; i++) {
@@ -143,6 +120,4 @@ public class Server {
       String books = getAllBooks(autore);
         System.out.println(authors);
         System.out.println(books);
-    }
-  }
-}
+    } } }
