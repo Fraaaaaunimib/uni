@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TestThread",
+            "request": "launch",
+            "mainClass": "TestThread",
+            "projectName": "uni_aff1dbce"
+        },
+        {
+            "type": "java",
+            "name": "threadTest",
+            "request": "launch",
+            "mainClass": "threadTest",
+            "projectName": "uni_aff1dbce"
+        },
+        {
+            "type": "java",
             "name": "Client",
             "request": "launch",
             "mainClass": "Esercizio3.Client",
