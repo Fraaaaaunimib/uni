@@ -9,7 +9,7 @@ import java.net.Socket;
 import java.util.List;
 
 public class Client {
-    public static final String host = "127.0.0.1";
+    public static final String host = "10.199.4.109";
     public static final int port = 8080;
 
     public static void main(String args[]){
