@@ -8,7 +8,7 @@ import java.net.Socket;
  * 
  * Il server deve essere posto in ascolto alla porta 8080 in localhost.
  */
-public class Client {
+public class Client2 {
     public static final String host = "127.0.0.1";
     public static final int port = 8081;
     static byte day;
@@ -16,11 +16,13 @@ public class Client {
     public static void main(String args[]) {
 
         try (var socket = new Socket(host, port)) {
+            Thread.sleep(10000);
             byte[] byteReceived = new byte[1000];
             String messageString = "";
             DataInputStream in2;
             var in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             var out = socket.getOutputStream();
+
             var userIn = new BufferedReader(new InputStreamReader(System.in));
                 
                 System.out.println("Inserisci un numero da 1 a 7 per ricevere il giorno della settimana corrispondente: ");
@@ -28,6 +30,8 @@ public class Client {
                 
                 out.write(day);
                 out.flush();
+                
+
 
                 in2 = new DataInputStream(socket.getInputStream());
                 int bytesRead = 0;

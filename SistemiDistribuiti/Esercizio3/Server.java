@@ -18,6 +18,7 @@
  */
 
 package Esercizio3;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -28,79 +29,121 @@ class Autore {
     String nome;
     List<Libro> libri;
 
-    public String toString() { return nome; } }
+    public String toString() {
+        return nome;
+    }
+}
 
 class Libro {
     String titolo;
 
-    public String toString() { return titolo; }
-    public Libro getLibro() { return this; } }
+    public String toString() {
+        return titolo;
+    }
+
+    public Libro getLibro() {
+        return this;
+    }
+}
 
 public class Server {
 
-    public static String getAllAuthors(Autore[] autore){
+    public static String getAllAuthors(Autore[] autore) {
         String result = "";
         for (int i = 0; i < autore.length; i++) {
             result += autore[i].toString() + "\n";
-        } return result; }
+        }
+        return result;
+    }
 
-    public static String getAuthorId(Autore[] autore, String nome){
-        for(int i = 0; i < autore.length; i++){
-            if(autore[i].nome.equals(nome) && autore[i] != null){
-                return autore[i].nome; } }
-        return "-1"; }
+    public static String getAuthorId(Autore[] autore, String nome) {
+        for (int i = 0; i < autore.length; i++) {
+            if (autore[i].nome.equals(nome) && autore[i] != null) {
+                return autore[i].nome;
+            }
+        }
+        return "-1";
+    }
 
-    public static String addAuthor(Autore[] autore, String nome){
-        for(int i = 0; i < autore.length; i++){
-            if(autore[i] != null && autore[i].nome != null){
-                if(autore[i].nome.equals(nome)){
+    public static String addAuthor(Autore[] autore, String nome) {
+        for (int i = 0; i < autore.length; i++) {
+            if (autore[i] != null && autore[i].nome != null) {
+                if (autore[i].nome.equals(nome)) {
                     return "-1";
                 }
-                if(autore[i].nome.isBlank() || autore[i].nome.isEmpty()){
+                if (autore[i].nome.isBlank() || autore[i].nome.isEmpty()) {
+                    autore[i] = new Autore();
                     autore[i].nome = nome;
-                    return autore[i].nome; } } } return "-1"; }
+                    return autore[i].nome;
+                }
+            }
+        }
+        return "-1";
+    }
 
     public static boolean addBook(Autore[] autore, String nome, String titolo){
         for(int i = 0; i < autore.length; i++){
             if(autore[i] != null && autore[i].nome != null && autore[i].nome.equals(nome)){
                 for(int j = 0; j < autore[i].libri.size(); j++){
                     Libro libro = autore[i].libri.get(j);
+                    if (libro == null){
+                        libro = new Libro();
+                        autore[i].libri.add(libro);
+                    }
                     if(libro != null && libro.titolo != null){
                         if(libro.titolo.equals(titolo)){
                             return false;
                         } else if (libro.titolo.isBlank() || libro.titolo.isEmpty()){
                             libro.titolo = titolo;
                             return true;
-                        } } } } } return false; }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
 
-    public static String getAllBooks(Autore[] autore){
+    public static String getAllBooks(Autore[] autore) {
         String result = "";
         for (int i = 0; i < autore.length; i++) {
-            if(autore[i] != null && autore[i].libri != null){
+            if (autore[i] != null && autore[i].libri != null) {
                 for (int j = 0; j < autore[i].libri.size(); j++) {
                     Libro libro = autore[i].libri.get(j);
-                    if(libro != null){
+                    if (libro != null) {
                         result += autore[i].toString() + ": " + libro.toString() + "\n";
-                    } } } } return result; }
+                    }
+                }
+            }
+        }
+        return result;
+    }
 
-    public static String getBooksOf(Autore[] autore, String nome){
-        for(int i = 0; i < autore.length; i++){
-            if(autore[i] != null && autore[i].nome.equals(nome)){
-                return autore[i].libri.toString(); } } return "-1"; }
+    public static String getBooksOf(Autore[] autore, String nome) {
+        for (int i = 0; i < autore.length; i++) {
+            if (autore[i] != null && autore[i].nome.equals(nome)) {
+                return autore[i].libri.toString();
+            }
+        }
+        return "-1";
+    }
 
-    public static Autore[] initialiseCatalogue(){
+    public static Autore[] initialiseCatalogue() {
         Autore[] autore = new Autore[10];
-        for (int i = 0; i < autore.length; i++){
+        for (int i = 0; i < autore.length; i++) {
             autore[i] = new Autore();
             addAuthor(autore, "test");
             addBook(autore, "test", "test1");
             addBook(autore, "test", "test2");
-        } return autore; }
+        }
+        return autore;
+    }
 
-    public static final int port = 8080;
-    public static void main(String args[]){
-        try(var socket = new ServerSocket(port)) {
-            while (true){
+    public static final int port = 8081;
+
+    public static void main(String args[]) {
+        try (var socket = new ServerSocket(port)) {
+            while (true) {
                 System.out.println(">> Waiting a new client connection...");
                 var client = socket.accept();
                 var out = new PrintWriter(client.getOutputStream(), true);
@@ -110,14 +153,19 @@ public class Server {
 
                 Autore[] autore = initialiseCatalogue();
                 toString(autore);
-            } } catch (Exception e) {
+            }
+        } catch (Exception e) {
             e.printStackTrace();
-            System.exit(1); } }
+            System.exit(1);
+        }
+    }
 
-  public static void toString(Autore[] autore) {
-    for (int i = 0; i < autore.length; i++) {
-      String authors = getAllAuthors(autore);
-      String books = getAllBooks(autore);
-        System.out.println(authors);
-        System.out.println(books);
-    } } }
+    public static void toString(Autore[] autore) {
+        for (int i = 0; i < autore.length; i++) {
+            String authors = getAllAuthors(autore);
+            String books = getAllBooks(autore);
+            System.out.println(authors);
+            System.out.println(books);
+        }
+    }
+}

@@ -28,7 +28,7 @@ class Posto {
     public Posto getPosto(){ return this; } }
 
 public class Server2 {
-    public static final int port = 8080;
+    public static final int port = 8081;
 
     public static void main(String args[]) {
         try (var socket = new ServerSocket(port)) {

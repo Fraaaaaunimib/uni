@@ -2,6 +2,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Client",
+            "request": "launch",
+            "mainClass": "Laboratorio2.Client",
+            "projectName": "uni_aff1dbce"
+        },
+        {
+            "type": "java",
+            "name": "Server",
+            "request": "launch",
+            "mainClass": "Laboratorio2.Server",
+            "projectName": "uni_aff1dbce"
+        },
+        {
+            "type": "java",
+            "name": "ServerChannel",
+            "request": "launch",
+            "mainClass": "ChannelServer.ServerChannel",
+            "projectName": "uni_aff1dbce"
+        },
+        {
+            "type": "java",
+            "name": "ClientChannel",
+            "request": "launch",
+            "mainClass": "ChannelServer.ClientChannel",
+            "projectName": "uni_aff1dbce"
+        },
+        {
+            "type": "java",
+            "name": "Client2",
+            "request": "launch",
+            "mainClass": "Client2",
+            "projectName": "uni_aff1dbce"
+        },
+        {
+            "type": "java",
             "name": "Server2",
             "request": "launch",
             "mainClass": "Server2",
