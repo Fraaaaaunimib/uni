@@ -112,21 +112,24 @@ public class ServerChannel {
 		channel.register(this.selector, SelectionKey.OP_READ);
 	}
 
+	private HashMap<SocketAddress,Integer> readTimes = new HashMap<>();
+
 	// read from the socket channel
 	// questo metodo invece cambiera' nella logica, in base al software che state creando
 	private void read(SelectionKey key) throws IOException {
 		
 		SocketChannel channel = (SocketChannel) key.channel();
 		// mi preparo a leggere... sta a voi decidere quanto grande il buffer dovra' essere
-		ByteBuffer buffer = ByteBuffer.allocate(1024);
+		ByteBuffer buffer = ByteBuffer.allocate(10);
 		int numRead = -1;
 		// leggo, e metto quello che leggo dentro buffer, e mi viene restituito il numero dei byte letti
 		numRead = channel.read(buffer);
+		
 
+		Socket socket = channel.socket();
+		SocketAddress remoteAddr = socket.getRemoteSocketAddress();
 		// channel chiuso
 		if (numRead == -1) {
-			Socket socket = channel.socket();
-			SocketAddress remoteAddr = socket.getRemoteSocketAddress();
 			System.out.println("Connection closed by client: " + remoteAddr);
 			channel.close();
 			key.cancel();
@@ -137,7 +140,10 @@ public class ServerChannel {
 		byte[] data = new byte[numRead];
 		System.arraycopy(buffer.array(), 0, data, 0, numRead);
 		System.out.println("Got: " + new String(data));
+
 		
 		// da qui in poi ci va la logica del sistema, la reazione al comando ricevuto
+		readTimes.put(remoteAddr, readTimes.getOrDefault(remoteAddr, 0) + 1);
+		System.out.println("Client " + remoteAddr + " has sent " + readTimes.get(remoteAddr) + " messages");
 	}
 }

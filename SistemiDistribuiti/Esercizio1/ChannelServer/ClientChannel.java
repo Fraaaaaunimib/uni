@@ -26,12 +26,16 @@ public class ClientChannel {
 		// da qui in poi dipende dalla vostra applicazione, puo' essere una sola scrittura e chiudo, o un for/while per una cosa piu' complessa
 		
 		// esempio di scrittura verso il server
-		String threadName = Thread.currentThread().getName();
-		ByteBuffer buffer = ByteBuffer.allocate(74);
-		buffer.put(threadName.getBytes());
+		//String threadName = Thread.currentThread().getName(); esempio
+		ByteBuffer buffer = ByteBuffer.allocate(500); //buffer di scrittura
+		int random = random_number(3, 3);
+		String message = random_string_count(random, "ABCD");
+		System.out.println("Sending: " + message + " " + System.currentTimeMillis());
+
+		buffer.put(message.getBytes());
 		// sempre mettere questo flip
-		buffer.flip();
-		server.write(buffer);
+		buffer.flip(); //flips the buffer from read to write and vice-versa
+		server.write(buffer); //write the buffer to the channel
 		buffer.clear();
 		///
 		
@@ -45,12 +49,22 @@ public class ClientChannel {
 		try {
 			c.startClient();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public int random_number(int min, int max){
+		return (int) (Math.random() * (max-min) + min);
+	}
+
+	public String random_string_count(int random, String message){
+		String result = "";
+		for (int i = 0; i <= random; i++){
+			result += message;
+		}
+		return result;
 	}
 
 }

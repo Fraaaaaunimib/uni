@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.List;
+import java.util.Scanner;
 
 public class Client {
     public static final String host = "127.0.0.1";
@@ -34,5 +35,26 @@ public class Client {
             e.printStackTrace();
             System.exit(1);
         }
+    }
+
+    public static int methodManager(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Inserisci il metodo da eseguire: ");
+        String read = scanner.nextLine(); int message = "";
+        if (read.equals("getAllAuthors")){
+            message = 1;
+        } else if (read.equals("getAllBooks")){
+            message = 2;
+        } else if (read.equals("getBooksByAuthor")){
+            message = 3;
+        } else if (read.equals("getAuthorsByBook")){
+            message = 4;
+        } else if (read.equals("exit")){
+            message = 5;
+        } else {
+            System.out.println("Metodo non valido");
+            message = 0;
+        }
+        return message;
     }
 }

@@ -21,12 +21,12 @@ public class Client
 			//Open a socket connection
 			// ricordatevi di leggere l'input...
 			// mi connetto al sesrver
-			socket = new Socket("localhost", Server.port);
+			socket = new Socket("localhost", Server.port); //connect to localhost
 			System.out.println("Connesso! " + System.currentTimeMillis());
 			
 			//Open I/O channels
-			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			out = new PrintStream(socket.getOutputStream(), true);			
+			in = new BufferedReader(new InputStreamReader(socket.getInputStream())); //input stream
+			out = new PrintStream(socket.getOutputStream(), true); //out stream
 
 			// scrivo
 			out.println(1);
@@ -34,7 +34,7 @@ public class Client
 			while (true) {
 				// leggo
 				message = in.readLine();
-				if (message==null || message.equals("-1"))
+				if (message==null || message.equals("-1")) //end of the stream
 					break; // no more bytes
 			
 				// uso la risposta per fare quello che voglio
@@ -47,7 +47,7 @@ public class Client
 					while (! message.equals("end")) {
 					
 							message=in.readLine();
-							System.out.println("Received: " + message  + " " + System.currentTimeMillis());
+							System.out.println("Received: " + message  + " " + System.currentTimeMillis()); 
 					}
 			
 				}
